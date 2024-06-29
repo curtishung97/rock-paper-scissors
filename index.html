@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("Hello World")
+
+        function getComputerChoice() {
+
+            let numberChoice = Math.random() * 3
+            let computerchoice;
+            if (numberChoice < 1) {
+                return "rock";
+            }
+
+            else if (numberChoice >= 1 && numberChoice < 2) {
+                return "paper";
+            }
+
+            else {
+                return "scissors"
+            }
+        }
+
+        function getHumanChoice() {
+            return humanChoice = prompt("Rock, Paper, or Scissors?")
+        }
+
+        let humanScore = 0, computerScore = 0;
+
+
+
+        function playGame() {
+            function playRound() {
+                let humanSelection = getHumanChoice().toLowerCase()
+                let computerSelection = getComputerChoice()
+
+                if (humanSelection == "rock") {
+                    if (computerSelection == "rock") {
+                        console.log("Draw! Both players picked Rock")
+                    }
+                    else if (computerSelection == "scissors") {
+                        console.log("You Win! Rock beats Scissors")
+                        humanScore++
+                    }
+                    else {
+                        console.log("You Lose! Rock loses to Paper")
+                        computerScore++
+                    }
+                }
+                else if (humanSelection == "paper") {
+                    if (computerSelection == "rock") {
+                        console.log("You Win! Paper beats Rock")
+                        humanScore++
+                    }
+                    else if (computerSelection == "scissors") {
+                        console.log("You Lose! Paper loses to Scissors")
+                        computerScore++
+                    }
+                    else {
+                        console.log("Draw! Both players picked Paper")
+                    }
+                }
+                else {
+                    if (computerSelection == "rock") {
+                        console.log("You Lose! Scissors loses to Rock")
+                        computerScore++
+                    }
+                    else if (computerSelection == "scissors") {
+                        console.log("Draw! Both players picked Scissors")
+                    }
+                    else {
+                        console.log("You Win! Scissors beats Paper")
+                        humanScore++
+                    }
+                }
+            }
+
+            for (let i = 1; i <= 5; i++) {
+                playRound()
+                console.log("Score, " + humanScore + ":" + computerScore)
+            }
+
+            if (humanScore > computerScore) {
+                console.log("Congratulations! You win!")
+            }
+            else if (humanScore < computerScore) {
+                console.log("You Lose!")
+            }
+            else {
+                console.log("Draw!")
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
